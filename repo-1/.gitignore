@@ -1,0 +1,7 @@
+node_modules/
+dist/
+
+# מסד הנתונים המקומי של השרת
+*.db
+*.db-shm
+*.db-wal
