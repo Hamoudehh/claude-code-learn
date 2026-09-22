@@ -92,7 +92,7 @@ logsRouter.post('/', (req, res) => {
 
   res
     .status(201)
-    .json(db.prepare(`SELECT ${SELECT_COLUMNS} FROM production_logs WHERE id = ?`).get(info.lastInsertRowid));
+    .json(db.prepare(`SELECT ${SELECT_COLUMNS} FROM production_logs WHERE id = ?`).get(Number(info.lastInsertRowid)));
 });
 
 logsRouter.put('/:id', (req, res) => {

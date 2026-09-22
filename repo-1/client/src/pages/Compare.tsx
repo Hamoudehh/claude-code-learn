@@ -71,7 +71,7 @@ export default function Compare() {
                 <XAxis dataKey="name" tick={AXIS_STYLE} tickLine={false} axisLine={false} />
                 <YAxis orientation="right" tick={AXIS_STYLE} tickLine={false} axisLine={false} width={70} />
                 <Tooltip contentStyle={TOOLTIP_STYLE} formatter={(value: number) => formatNumber(value)} />
-                <Bar dataKey="producedQty" name="כמות מיוצרת" radius={[12, 12, 0, 0]} maxBarSize={90}>
+                <Bar dataKey="producedQty" name="כמות מיוצרת" isAnimationActive={false} radius={[12, 12, 0, 0]} maxBarSize={90}>
                   {bars.map((bar) => (
                     <Cell key={bar.name} fill={bar.color} />
                   ))}
@@ -85,7 +85,7 @@ export default function Compare() {
                 <XAxis dataKey="name" tick={AXIS_STYLE} tickLine={false} axisLine={false} />
                 <YAxis orientation="right" tick={AXIS_STYLE} tickLine={false} axisLine={false} width={70} />
                 <Tooltip contentStyle={TOOLTIP_STYLE} formatter={(value: number) => formatNumber(value)} />
-                <Bar dataKey="wasteKg" name="פחת" fill="#FF9100" radius={[12, 12, 0, 0]} maxBarSize={90} />
+                <Bar dataKey="wasteKg" name="פחת" isAnimationActive={false} fill="#FF9100" radius={[12, 12, 0, 0]} maxBarSize={90} />
               </BarChart>
             </ChartCard>
           </div>
@@ -107,6 +107,7 @@ export default function Compare() {
                   strokeWidth={4}
                   dot={{ r: 4 }}
                   activeDot={{ r: 7 }}
+                  isAnimationActive={false}
                 />
               ))}
             </LineChart>

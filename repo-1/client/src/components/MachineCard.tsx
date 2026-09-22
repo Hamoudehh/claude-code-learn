@@ -54,7 +54,7 @@ export default function MachineCard({ machine }: { machine: MachineCardData }) {
         </div>
       </dl>
 
-      <Link to={`/update/${machine.id}`} className="btn-primary mt-5 w-full">
+      <Link to={`/update/${machine.id}`} className="btn btn-primary mt-5 w-full">
         ✏️ עדכון נתונים
       </Link>
     </article>

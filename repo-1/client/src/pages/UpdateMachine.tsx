@@ -174,7 +174,7 @@ export default function UpdateMachine() {
                 type="button"
                 aria-pressed={form.status === status}
                 onClick={() => setField('status', status)}
-                className={form.status === status ? 'btn-active w-full px-2 text-base' : 'btn-ghost w-full px-2 text-base'}
+                className={form.status === status ? 'btn btn-active w-full px-2 text-base' : 'btn btn-ghost w-full px-2 text-base'}
               >
                 {STATUS_LABELS[status]}
               </button>
@@ -185,10 +185,10 @@ export default function UpdateMachine() {
         {mutation.isError && <StateMessage tone="error">{(mutation.error as Error).message}</StateMessage>}
 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <button type="submit" disabled={mutation.isPending} className="btn-primary w-full disabled:opacity-60">
+          <button type="submit" disabled={mutation.isPending} className="btn btn-primary w-full disabled:opacity-60">
             {mutation.isPending ? 'שומר…' : '💾 שמירה'}
           </button>
-          <button type="button" onClick={() => navigate('/')} className="btn-ghost w-full">
+          <button type="button" onClick={() => navigate('/')} className="btn btn-ghost w-full">
             ביטול
           </button>
         </div>

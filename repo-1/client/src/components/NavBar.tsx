@@ -18,7 +18,7 @@ export default function NavBar() {
               key={link.to}
               to={link.to}
               end={link.end}
-              className={({ isActive }) => (isActive ? 'btn-active sm:px-8' : 'btn-ghost sm:px-8')}
+              className={({ isActive }) => (isActive ? 'btn btn-active sm:px-8' : 'btn btn-ghost sm:px-8')}
             >
               {link.label}
             </NavLink>

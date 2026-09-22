@@ -1,4 +1,4 @@
-import { db, MACHINES } from './src/db/index.js';
+import { db, MACHINES, runInTransaction } from './src/db/index.js';
 import { shiftDays, toDateString } from './src/lib/dates.js';
 
 const PROFILES = {
@@ -8,6 +8,7 @@ const PROFILES = {
 };
 
 const DAYS = 30;
+const MAX_SHIFT_MINUTES = 480;
 
 // מחולל פסאודו-אקראי דטרמיניסטי, כדי שהנתונים לדוגמה יהיו יציבים בין הרצות
 let seed = 42;
@@ -37,7 +38,10 @@ for (let offset = DAYS - 1; offset >= 0; offset -= 1) {
     const profile = PROFILES[machine.id];
     const factor = 0.75 + random() * 0.5;
     const status = offset === 0 && random() < 0.25 ? 'maintenance' : 'running';
-    const workMinutes = status === 'maintenance' ? Math.round(180 * factor) : Math.round(460 * factor);
+    const workMinutes = Math.min(
+      MAX_SHIFT_MINUTES,
+      status === 'maintenance' ? Math.round(180 * factor) : Math.round(380 * factor)
+    );
 
     rows.push({
       machineId: machine.id,
@@ -52,5 +56,5 @@ for (let offset = DAYS - 1; offset >= 0; offset -= 1) {
   });
 }
 
-db.transaction((items) => items.forEach((item) => insert.run(item)))(rows);
+runInTransaction(() => rows.forEach((row) => insert.run(row)));
 console.log(`נטענו ${rows.length} רשומות ייצור לדוגמה (${DAYS} ימים אחרונים).`);

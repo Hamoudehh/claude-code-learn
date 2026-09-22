@@ -46,15 +46,15 @@
   }
 
   .btn-primary {
-    @apply btn bg-brand text-white shadow-lg shadow-brand/25 hover:bg-brand-dark;
+    @apply bg-brand text-white shadow-lg shadow-brand/25 hover:bg-brand-dark;
   }
 
   .btn-ghost {
-    @apply btn border-4 border-slate-200 bg-white text-ink hover:border-brand hover:text-brand;
+    @apply border-4 border-slate-200 bg-white text-ink hover:border-brand hover:text-brand;
   }
 
   .btn-active {
-    @apply btn border-4 border-brand bg-brand text-white;
+    @apply border-4 border-brand bg-brand text-white;
   }
 
   .card {

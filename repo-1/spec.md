@@ -90,7 +90,7 @@
 - **עיצוב**: Tailwind CSS (כיוון RTL מופעל).
 - **גרפים**: Recharts.
 - **Backend**: Node.js + Express.
-- **מסד נתונים**: SQLite בשלב ראשון (קובץ מקומי), ניתן להחלפה ל־PostgreSQL.
+- **מסד נתונים**: SQLite בשלב ראשון — `node:sqlite`, המנוע המובנה ב-Node (ללא תלות native), ניתן להחלפה ל־PostgreSQL.
 - **State**: React Query לשליפת נתונים, רענון אוטומטי כל 60 שניות.
 
 ### מודל נתונים

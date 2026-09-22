@@ -20,7 +20,7 @@ export default function RangeSwitch({ value, onChange }: RangeSwitchProps) {
           type="button"
           onClick={() => onChange(range.key)}
           aria-pressed={value === range.key}
-          className={value === range.key ? 'btn-active w-full' : 'btn-ghost w-full'}
+          className={value === range.key ? 'btn btn-active w-full' : 'btn btn-ghost w-full'}
         >
           {range.label}
         </button>
