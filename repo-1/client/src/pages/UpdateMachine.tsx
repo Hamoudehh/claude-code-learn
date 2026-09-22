@@ -3,7 +3,7 @@ import { useEffect, useState, type FormEvent } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import StateMessage from '../components/StateMessage';
 import { useDashboard } from '../hooks/useDashboard';
-import { createLog } from '../lib/api';
+import { createLog } from '../lib/data';
 import { todayString } from '../lib/format';
 import { STATUS_LABELS, type MachineId, type MachineStatus, type ProductionLogInput } from '../lib/types';
 

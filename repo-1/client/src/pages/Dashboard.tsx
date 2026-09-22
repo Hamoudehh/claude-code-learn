@@ -4,6 +4,7 @@ import MachineCard from '../components/MachineCard';
 import RangeSwitch from '../components/RangeSwitch';
 import StateMessage from '../components/StateMessage';
 import { useDashboard } from '../hooks/useDashboard';
+import { IS_STATIC } from '../lib/data';
 import { formatDuration, formatNumber } from '../lib/format';
 import type { RangeKey } from '../lib/types';
 
@@ -17,6 +18,12 @@ export default function Dashboard() {
         <h2 className="mb-3 text-xl font-black text-muted">טווח זמן</h2>
         <RangeSwitch value={range} onChange={setRange} />
       </section>
+
+      {IS_STATIC && (
+        <p className="rounded-2xl border-4 border-warn/30 bg-warn/10 p-4 text-base font-bold">
+          גרסת הדגמה: הנתונים נשמרים בדפדפן של המכשיר הזה בלבד, ואינם משותפים עם מכשירים אחרים.
+        </p>
+      )}
 
       {isPending && <StateMessage>טוען נתונים…</StateMessage>}
       {isError && <StateMessage tone="error">{(error as Error).message}</StateMessage>}

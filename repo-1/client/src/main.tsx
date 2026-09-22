@@ -1,8 +1,9 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import App from './App';
+import { IS_STATIC } from './lib/data';
 import './styles/index.css';
 
 const queryClient = new QueryClient({
@@ -16,12 +17,15 @@ const queryClient = new QueryClient({
   },
 });
 
+// GitHub Pages לא יודע להגיש נתיבים של אפליקציית SPA, ולכן שם משתמשים בניתוב מבוסס #
+const Router = IS_STATIC ? HashRouter : BrowserRouter;
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
+      <Router>
         <App />
-      </BrowserRouter>
+      </Router>
     </QueryClientProvider>
   </React.StrictMode>
 );

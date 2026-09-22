@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchDashboard } from '../lib/api';
+import { fetchDashboard } from '../lib/data';
 import type { RangeKey } from '../lib/types';
 
 export function useDashboard(range: RangeKey) {
