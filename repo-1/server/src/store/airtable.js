@@ -79,7 +79,8 @@ export async function getLog(id) {
   try {
     return toLog(await call(`${tableUrl}/${encodeURIComponent(id)}`));
   } catch (error) {
-    if (/Airtable (404|422)/.test(error.message)) return null;
+    // רשומה שלא קיימת מחזירה 403 (INVALID_PERMISSIONS_OR_MODEL_NOT_FOUND) ולא 404
+    if (/Airtable (403|404|422)/.test(error.message)) return null;
     throw error;
   }
 }
