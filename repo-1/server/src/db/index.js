@@ -2,15 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { fileURLToPath } from 'node:url';
+import { MACHINES } from '../lib/machines.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DB_PATH = process.env.DB_PATH || path.join(__dirname, '..', '..', 'factory.db');
 
-export const MACHINES = [
-  { id: 'knol', name: 'מכונת כנול', color: '#0066FF', sort: 1 },
-  { id: 'rondo', name: 'מכונת רונדו', color: '#00BFA5', sort: 2 },
-  { id: 'kromster', name: 'מכונת קרומסטר', color: '#6200EA', sort: 3 },
-];
+export { MACHINES };
 
 // node:sqlite — מנוע SQLite המובנה ב-Node 22.5 ומעלה, ללא תלות native חיצונית
 export const db = new DatabaseSync(DB_PATH);
